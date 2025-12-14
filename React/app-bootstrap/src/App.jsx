@@ -1,0 +1,23 @@
+
+import './App.css'
+
+function App() {
+  
+
+  return (
+    <>
+      <button type="button" class= "kg-btn btn btn-primary">Primary</button>
+      <button type="button" class="kg-btn btn btn-secondary">Secondary</button>
+      <button type="button" class="kgbtn btn btn-success">Success</button>
+      <button type="button" class="kg-btn btn btn-danger">Danger</button>
+      <button type="button" class="btn btn-warning">Warning</button>
+      <button type="button" class="btn btn-info">Info</button>
+      <button type="button" class="btn btn-light">Light</button>
+      <button type="button" class="btn btn-dark">Dark</button>
+
+      <button type="button" class="btn btn-link">Link</button>
+    </>
+  )
+}
+
+export default App

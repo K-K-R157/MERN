@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Grid Layout</title>
+    <style>
+        .container{
+            display: grid;
+            grid-template-rows: repeat(2,1fr);
+            grid-template-columns: repeat(2,1fr);
+            gap: 10px;
+            background-color: rgb(177, 229, 229);
+        }
+
+        .item{
+            text-align:center;
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            border: 5px solid black;
+            border-radius: 5px;
+            transition: background-color
+            0.5s ease-in-out;
+        }
+
+        .item:hover{
+            background-color: blueviolet;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item item1">Item 1</div>
+        <div class="item item2">Item 2</div>
+        <div class="item item3">Item 3</div>
+        <div class="item item4">Item 4</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+}
+
+/* #Todo-App{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+#heading{
+    text-align: center;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 200px 150px 100px;
+    font-size: 15px;
+    column-gap: 10px;
+    row-gap: 10px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+#todo-input, #todo-date {
+    padding: 10px 5px;
+    border: 2px solid rgb(220, 222, 222);   /* full border definition */
+    /* outline: none;            remove the extra blue glow */
+    border-radius: 4px;       /* optional: rounded corners */
+}
+
+
+#add-button{
+    padding: 10px 5px;
+    border: none;
+    background-color: rgb(5, 164, 5);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-button{
+    padding: 10px 5px;
+    border: none;
+    background-color: rgb(127, 4, 4);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
