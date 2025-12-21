@@ -4,4 +4,4 @@ const AppName=()=>{
     </>
 }
 
-export default AppName;
+export default AppName;  

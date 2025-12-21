@@ -9,4 +9,4 @@ const Button=({btnType,btnText,handler})=>{
         return <button className='btn btn-primary button' onClick={handler}>{btnText}</button>;
 }
 
-export default Button;
+export default Button; 
