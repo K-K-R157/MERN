@@ -1,0 +1,17 @@
+
+*{
+    font-weight: 500;
+    font-size: 20px;
+}
+.heading{
+    font-weight: 700;
+    font-size: 40 px;
+}
+.button{
+    min-width: 90px;
+}
+
+.row-margin{
+    margin-bottom: 9px;
+    text-align: start;
+}

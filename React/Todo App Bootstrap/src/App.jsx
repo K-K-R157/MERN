@@ -17,7 +17,7 @@ function App() {
         </TodoItemsProvider>
       </center>
     </>
-  );
+  ); 
 }
 
 export default App;
