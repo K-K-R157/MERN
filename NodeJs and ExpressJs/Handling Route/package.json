@@ -1,0 +1,21 @@
+{
+  "name": "e-commerce",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "KKR",
+  "type": "commonjs",
+  "main": "App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon App.js",
+    "start1": "nodemon App1.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.1",
+    "express": "^5.2.1"
+  }
+}
