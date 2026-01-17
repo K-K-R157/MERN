@@ -1,4 +1,5 @@
-import List from "./Components/List"
+import List from "./Components/List";
+// import { useState } from "react";
 
 function App() {
   // Without USe State
@@ -26,4 +27,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

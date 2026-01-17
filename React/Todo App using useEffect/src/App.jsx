@@ -6,7 +6,7 @@ import { TodoItemsProvider } from "./Store/TodoItemsProvider";
 import LoadItems from "./Components/LoadItems";
 
 function App() {
-  return (
+  return ( 
     <>
       <center>
         <TodoItemsProvider>

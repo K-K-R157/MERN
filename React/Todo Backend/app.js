@@ -11,7 +11,7 @@ app.use(express.json());
 
 // GET endpoint to return the list of todos
 app.get("/todos", (req, res) => {
-  res.json(todos);
+  res.json(todos);   
 });
 
 app.get("/todos/:id", (req, res) => {

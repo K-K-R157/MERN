@@ -24,8 +24,8 @@ const todoItemsReducer=(items,action)=>{
       newItems=items;
     }
     default:
-      return newItems;
-  }  
+      return newItems; 
+  }   
 
   return newItems; 
 }

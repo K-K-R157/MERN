@@ -10,7 +10,6 @@ function App() {
       <Trash2 color='green' size={60} strokeWidth={2}/>
       <Icon iconNode={burger} color='orange' size={60} strokeWidth={2}/>
       <Icon iconNode={baseball} color='brown' size={60} strokeWidth={2}/>
-
     </>
   )
 }

@@ -9,7 +9,7 @@ const AddTodo = () => {
   const textInput = useRef();
   const textDate = useRef();
 
-  // const addHandler = () => {
+  // const addHandler = () => {               
   //   const todoText = textInput.current.value;
   //   const todoDate = textDate.current.value;
   //   textInput.current.value = "";

@@ -30,7 +30,7 @@ const {URLSearchParams} = require('url');
 //       console.log(chunk);
 //       buffer.push(chunk);
 //     });
-//     req.on('end', () => {
+//     req.on('end', () => {  
 //       const body = Buffer.concat(buffer).toString();
 //       const urlParams = new URLSearchParams(body);
 //       const bodyJson = {};
@@ -41,11 +41,14 @@ const {URLSearchParams} = require('url');
 
 //       console.log(JSON.stringify(bodyJson));
 //       fs.writeFileSync('buy.txt', JSON.stringify(bodyJson));
-
+//       console.log('written in file');
 //     });
 
-//     res.statusCode = 302;
-//     res.setHeader('Location', '/products');
+//      res.statusCode = 302;
+//       console.log('setting header');
+//       res.setHeader('Location', '/products');
+//       console.log('header setted');
+    
 //     console.log('Sending Response');
   
 //   } else if (req.url === "/products") {
@@ -126,10 +129,6 @@ const {URLSearchParams} = require('url');
       
 //     });
 
-//     res.statusCode = 302;
-//     res.setHeader('Location', '/products');
-//     res.end();
-//     console.log('Sending Response');
   
 //   } else if (req.url === "/products") {
 //     res.write(`
@@ -244,6 +243,6 @@ const RequestHandler = (req, res) => {
   }
 }
 
-exports.handler = RequestHandler;
+ exports.handler = RequestHandler;
 
 

@@ -11,8 +11,6 @@ const ButtonPad = ({displayValue,setDisplayValue}) => {
 
     const addText=(text)=>setDisplayValue(displayValue+text);
 
-    
-
   return (
     <div className='mx-5 mb-2 flex flex-wrap justify-center' >
         <Button text="C" onClickHandler={()=>setDisplayValue("")}/>
@@ -23,4 +21,4 @@ const ButtonPad = ({displayValue,setDisplayValue}) => {
   )
 }
 
-export default ButtonPad
+export default ButtonPad;
