@@ -12,4 +12,4 @@ storeRouter.get("/favourites",storeController.getFavourites);
 storeRouter.post("/favourites",storeController.postAddFavourites);
 
 
-module.exports=storeRouter;
+module.exports=storeRouter;   

@@ -2,6 +2,7 @@ const Favourite = require("../models/Favourite");
 const Home = require("../models/Home");
 
 exports.getAddHome = (req, res, next) => {
+  // res.render("host/add-home", { pageTitle: "Add your home",editing:false });
   res.render("host/edit-home", { pageTitle: "Add your home",editing:false });
 };
 
@@ -15,7 +16,7 @@ exports.postAddHome = (req, res, next) => {
 };
 
 
-exports.getHostHomes= (req, res, next) => {
+exports.getHostHomes= (req, res, next) => {   
   Home.fetchAllHome((registeredHomes) => {
     res.render("host/host-homes", {
       homes: registeredHomes,
@@ -34,7 +35,7 @@ exports.getEditHome = (req, res, next) => {
     return res.redirect('/host/host-homes');
   }
   Home.findById(homeId,home=>{
-    if(!home){
+    if(!home){   
       console.log('home not found for editing');
       return res.redirect('/host/host-homes');
 

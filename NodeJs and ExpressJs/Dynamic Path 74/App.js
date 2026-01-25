@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use((req, res, next) => {
   console.log('Request Received', req.url, req.method,req.body);  
   next();
-});
+});   
 
 
 app.use(storeRouter);

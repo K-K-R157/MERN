@@ -7,5 +7,5 @@ const rootDir = require("../utils/path-util");
 hostRouter.get("/add-home", hostController.getAddHome);
 
 hostRouter.post("/add-home", hostController.postAddHome);
-
-exports.hostRouter = hostRouter;
+    
+exports.hostRouter = hostRouter;  

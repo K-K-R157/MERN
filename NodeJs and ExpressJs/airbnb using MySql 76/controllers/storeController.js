@@ -3,16 +3,18 @@ const fs = require("fs");
 const Favourite = require("../models/Favourite");
 
 exports.getAirbnb = (req, res, next) => {
+  // Home.fetchAllHome((registeredHomes) => {
   Home.fetchAllHome().then(([registeredHomes]) => {
     res.render("store/airbnb-home", {
-      homes: registeredHomes,
+      homes: registeredHomes,  
       pageTitle: "Hamara airbnb",
     });
   });
 };
 
 exports.getHomes = (req, res, next) => {
-  Home.fetchAllHome().then(([registeredHomes]) => {
+  // Home.fetchAllHome((registeredHomes) => {
+  Home.fetchAllHome().then(([registeredHomes]) => {  
     res.render("store/homes", {
       homes: registeredHomes,
       pageTitle: "Hamara airbnb",
@@ -22,6 +24,7 @@ exports.getHomes = (req, res, next) => {
 
 exports.getHomeDetails = (req, res, next) => {
   const homeId = req.params.homeId;
+  // ome.findById(homeId,home=>{
   Home.findById(homeId).then(([homes])=>{
     const home=homes[0];
     if (!home) return res.redirect("/homes");
@@ -31,11 +34,12 @@ exports.getHomeDetails = (req, res, next) => {
 
 exports.getFavourites = (req, res, next) => {
   Favourite.fetchAllFavourites((favouriteHomesId) => {
+    // Home.fetchAllHome((registeredHomes) => {
   Home.fetchAllHome().then(([registeredHomes]) => {
       const favouriteHomes = registeredHomes.filter((home) =>
         favouriteHomesId.includes(home.id)
       );
-      res.render("store/favourites", {
+      res.render("store/favourites", {  
         homes: favouriteHomes,
         pageTitle: "Favourites",
       });

@@ -8,7 +8,7 @@ const rootDir=require('./utils/path-util');
 const errorController=require('./controllers/errorController');
 
 
-// const airbnbDb=require('./utils/mysql-util');
+const airbnbDb=require('./utils/mysql-util');   
 
 // airbnbDb.execute("select * from homes").then(data=>console.log(data));
 

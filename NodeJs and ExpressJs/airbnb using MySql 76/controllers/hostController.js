@@ -8,6 +8,7 @@ exports.getAddHome = (req, res, next) => {
 exports.postAddHome = (req, res, next) => {
   const { houseName, price, location, rating, photoUrl,description} = req.body;
   const newHome = new Home(houseName, price, location, rating, photoUrl,description);
+    // newHome.saveHome((error) => {
   newHome.saveHome().then((error) => {
     if (error) res.redirect("/");
     else res.render("host/home-added", { pageTitle: "Home hosted" });
@@ -16,6 +17,7 @@ exports.postAddHome = (req, res, next) => {
 
 
 exports.getHostHomes= (req, res, next) => {
+  // Home.fetchAllHome((registeredHomes) => {
   Home.fetchAllHome().then(([registeredHomes]) => {
     res.render("host/host-homes", {
       homes: registeredHomes,
@@ -33,6 +35,8 @@ exports.getEditHome = (req, res, next) => {
     console.log('editing flag not set properly');
     return res.redirect('/host/host-homes');
   }
+  // ome.findById(homeId,home=>{
+
   Home.findById(homeId).then(([homes])=>{
     console.log(homes);
     const home=homes[0];
@@ -50,6 +54,7 @@ exports.postEditHome = (req, res, next) => {
   const {id,houseName, price, location, rating, photoUrl,description } = req.body;
   const newHome = new Home(houseName, price, location, rating, photoUrl,description);
   newHome.id=id;
+    // newHome.saveHome((error) => {
   newHome.saveHome().then((error) => {
     if (error) console.log('error while Updating home',error);
     res.redirect('/host/host-homes');
@@ -59,6 +64,7 @@ exports.postEditHome = (req, res, next) => {
 
 exports.postDeleteHome = (req, res, next) => {
   const homeId = req.params.homeId;
+    // Home.deleteById(homeId,error=>{
   Home.deleteById(homeId).then(()=>{
     res.redirect('/host/host-homes');
   })

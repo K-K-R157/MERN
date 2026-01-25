@@ -7,10 +7,10 @@ const fs = require("fs");
 // }
 
 exports.getHome = (req, res, next) => {
-  Home.fetchAllHome((registeredHomes) => {
+  Home.fetchAllHome((registeredHomes) => {     
     res.render("airbnb-home", {
       homes: registeredHomes,
       pageTitle: "Hamara airbnb",
-    });
+    });  
   });
 };

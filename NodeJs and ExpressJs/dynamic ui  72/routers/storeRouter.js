@@ -8,7 +8,7 @@ const {registeredHomes}=require('./hostRouter');
 storeRouter.get("/", (req,res,next) => {
   console.log(registeredHomes);
   // res.sendFile(path.join(rootDir,"views","airbnb-home.html"));
-  res.render('airbnb-home',{homes:registeredHomes , pageTitle:'Hamara airbnb'});
+  res.render('airbnb-home',{homes:registeredHomes , pageTitle:'Hamara airbnb'});   
 });
 
 

@@ -12,7 +12,7 @@ module.exports = class Home {
     this.price = price;
     this.location = location;
     this.rating = rating;
-    this.photoUrl = photoUrl;
+    this.photoUrl = photoUrl;   
   }
 
 

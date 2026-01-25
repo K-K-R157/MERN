@@ -13,7 +13,7 @@ exports.getAirbnb = (req, res, next) => {
 
 exports.getHomes = (req, res, next) => {
   Home.fetchAllHome((registeredHomes) => {
-    res.render("store/homes", {
+    res.render("store/homes", {  
       homes: registeredHomes,
       pageTitle: "Hamara airbnb",
     });
@@ -45,7 +45,7 @@ exports.getFavourites = (req, res, next) => {
 
 exports.postAddFavourites = (req, res, next) => {
   const homeId = req.body.id;
-  Favourite.AddToFavourites(homeId, (error) => {
+  Favourite.AddToFavourites(homeId, (error) => { 
     if (error) {
       console.log("error while adding to favourite : ", error);
     }

@@ -29,7 +29,7 @@ exports.getHomeDetails=(req,res,next) => {
 
 
 exports.getFavourites=(req,res,next) => {
-  Favourite.fetchAllFavourites(favouriteHomesId=>{
+  Favourite.fetchAllFavourites(favouriteHomesId=>{ 
     // console.log("Favorite IDs from file:", favouriteHomesId);
     Home.fetchAllHome(registeredHomes=>{
       // console.log("All Registered Home IDs:", registeredHomes.map(h => h.id));
@@ -41,7 +41,7 @@ exports.getFavourites=(req,res,next) => {
 }
 
 
-exports.postAddFavourites=(req,res,next) => {
+exports.postAddFavourites=(req,res,next) => { 
   const homeId=req.body.id;
   Favourite.AddToFavourites(homeId,error=>{
     if(error){
