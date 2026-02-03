@@ -1,0 +1,94 @@
+const fs = require("fs");
+const path = require("path");
+const express = require("express");
+const bodyParser = require("body-parser");
+const { hostRouter } = require("./routers/hostRouter");
+const storeRouter = require("./routers/storeRouter");
+const { authRouter } = require("./routers/authRouter");
+const fetchUser = require("./middleware/fetchUser");     // added extra 
+
+
+
+const rootDir = require("./utils/path-util");
+const errorController = require("./controllers/errorController");
+const mongoose = require("mongoose");
+
+const session = require("express-session");
+const mongodb_session = require("connect-mongodb-session");
+
+const mongodb_url = "mongodb://127.0.0.1:27017/airbnb"; 
+
+const app = express();
+app.set("view engine", "ejs");
+app.set("views", "views");
+
+app.use(express.static(path.join(rootDir, "public")));
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use((req, res, next) => {
+  console.log("Request Received : ", req.url, req.method, req.body);
+  next();
+});
+
+
+// saving session in mongodb
+
+const mongodbStore=mongodb_session(session);
+
+const sessionStore=new mongodbStore({
+  // url:mongodb_url,
+  uri:mongodb_url,
+  collection:'sessions',
+});
+
+// app.use(
+//   session({
+//     secret: "airbnb-secret",
+//     resave: false,
+//     saveUninitialized: true,
+//     store:sessionStore,
+//   }),
+// );
+
+app.use(
+  session({
+    secret: "airbnb-secret",
+    resave: false, 
+    saveUninitialized: false, // Changed to false
+    store: sessionStore,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 // 1 day
+    }
+  })
+);
+app.use(fetchUser);      // added extra
+
+app.use((req, res, next) => {         // added extra    
+  res.locals.isLoggedIn = req.session.isLoggedIn;
+  res.locals.user = req.user;
+  next();
+});
+
+app.use(storeRouter);
+app.use(authRouter);
+
+// app.use("/host", (req, res, next) => {
+//   if (!req.isLoggedIn) {
+//     return res.redirect("/login");
+//   }
+//   next();
+// });
+
+app.use("/host", hostRouter);
+
+app.use(errorController.get404);
+
+const PORT = 3002;
+
+
+
+mongoose.connect(mongodb_url).then(() => {
+  app.listen(PORT, () => {
+    console.log(`Server running at: http://localhost:${PORT}`);
+  });
+});

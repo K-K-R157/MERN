@@ -11,7 +11,7 @@ exports.postAddHome = (req, res, next) => {
 
   const newHome = new Home({houseName, price, location, rating, photoUrl,description});
 
-  newHome.saveHome().then(() => {
+  newHome.save().then(() => {
     res.render("host/home-added", { pageTitle: "Home hosted" });
   }).catch(error=>{
     console.log(error);   

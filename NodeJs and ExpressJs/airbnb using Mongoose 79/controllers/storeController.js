@@ -31,24 +31,38 @@ exports.getHomeDetails = (req, res, next) => {
   });
 };
 
+// exports.getFavourites = (req, res, next) => {
+//   // Favourite.fetchAllFavourites().then(favouriteHomesId => {
+//     Favourite.find().then(favouriteHomesId => {
+//     // Home.fetchAllHome().then(registeredHomes=> {
+//     Home.find().then(registeredHomes=> {
+//       favouriteHomesId=favouriteHomesId.map(fav=>fav.homeId.toString());
+//       console.log(favouriteHomesId,registeredHomes);
+//       const favouriteHomes = registeredHomes.filter((home) =>
+//         // favouriteHomesId.includes(home._id),  give error
+//        favouriteHomesId.includes(home._id.toString()),
+//       );
+//       res.render("store/favourites", {
+//         homes: favouriteHomes,
+//         pageTitle: "Favourites",
+//       });
+//     });
+//   });
+// };
+
+
+
 exports.getFavourites = (req, res, next) => {
-  // Favourite.fetchAllFavourites().then(favouriteHomesId => {
-    Favourite.find().then(favouriteHomesId => {
-    // Home.fetchAllHome().then(registeredHomes=> {
-    Home.find().then(registeredHomes=> {
-      favouriteHomesId=favouriteHomesId.map(fav=>fav.homeId.toString());
-      console.log(favouriteHomesId,registeredHomes);
-      const favouriteHomes = registeredHomes.filter((home) =>
-        // favouriteHomesId.includes(home._id),  give error
-       favouriteHomesId.includes(home._id.toString()),
-      );
-      res.render("store/favourites", {
-        homes: favouriteHomes,
-        pageTitle: "Favourites",
-      });
+  Favourite.find().populate("homeId").then((favIdHomes) => {
+    const favouriteHomes = favIdHomes.map((favIdHome) => favIdHome.homeId);
+    res.render("store/favourites", {
+      homes: favouriteHomes,
+      pageTitle: "Favourites",
     });
   });
 };
+
+
 
 exports.postAddFavourites = (req, res, next) => {
   const homeId = req.body.id;
