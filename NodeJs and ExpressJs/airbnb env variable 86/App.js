@@ -25,7 +25,10 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const mongodb_session = require("connect-mongodb-session");
 
-const mongodb_url = `mongodb://127.0.0.1:27017/${process.env.MONGO_DB_DATABASE}`; 
+// const mongodb_url = `mongodb://127.0.0.1:27017/${process.env.MONGO_DB_DATABASE}`; 
+const mongodb_url=`mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@cluster0.xxbwcxp.mongodb.net/${process.env.MONGO_DB_DATABASE}`;
+
+
 
 const loggingPath=path.join(rootDir,'access.log');
 
@@ -117,7 +120,7 @@ app.use("/host", hostRouter);
 
 app.use(errorController.get404);
 
-const PORT =process.env.MONGO_DB_USERNAME || 3002;
+const PORT =process.env.PORT || 3002;
 
 
 

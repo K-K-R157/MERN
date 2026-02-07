@@ -33,6 +33,7 @@ const PORT = 3002;
 
 const mongoDb_Url='mongodb://127.0.0.1:27017/airbnb';
 
+
 mongoose.connect(mongoDb_Url).then(()=>{
   app.listen(PORT, () => {
     console.log(`Server running at: http://localhost:${PORT}`);
