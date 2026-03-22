@@ -1,7 +1,9 @@
 import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import ErrorMessages from '../common/ErrorMessages';
 
 const Signup = () => {
+  const [errorMessages, setErrorMessages] = useState([]);
   const firstNameRef = useRef();
   const lastNameRef = useRef();
   const emailRef = useRef();
@@ -11,6 +13,7 @@ const Signup = () => {
   const navigate = useNavigate();
 
     const handleSubmit = (e) => {
+      setErrorMessages([]);
     e.preventDefault();
     fetch("http://localhost:3000/api/auth/signup", {
       method: "POST",
@@ -33,6 +36,7 @@ const Signup = () => {
         return res.json();
       }
     })
+    .then(({errorMessages}) => setErrorMessages(errorMessages));
   };
 
   return (
@@ -40,6 +44,7 @@ const Signup = () => {
       <h1 className="text-3xl font-bold text-gray-900 mb-8">Sign Up</h1>
       
       <form onSubmit={handleSubmit} className="space-y-6">
+        <ErrorMessages errorMessages={errorMessages} />
         <div>
           <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">First Name</label>
           <input

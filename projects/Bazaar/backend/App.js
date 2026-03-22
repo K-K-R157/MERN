@@ -13,11 +13,11 @@ const cors=require('cors');
 const authRouter = require('./routers/authRouter');
 const mongodb_url=process.env.MONGO_DB_URL;
 const app = express();
-
+const { isLoggedIn, isSeller } = require('./middleware/auth');
 app.use(bodyParser.urlencoded({ extended: true }));  
 app.use(cors());
 app.use(express.json());
-app.use('/api/seller',sellerRouter);
+app.use('/api/seller',isLoggedIn, isSeller, sellerRouter);
 app.use('/api/auth',authRouter);
 
 app.use(errorController.get404);

@@ -1,5 +1,6 @@
 import {useRef} from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const AddProduct = () => {
   const nameRef=useRef();
@@ -10,6 +11,7 @@ const AddProduct = () => {
   const ratingRef=useRef();
   const imageRef=useRef();
   const navigate=useNavigate();
+  const { token } = useSelector((state) => state.auth);
 
   const handleSubmit=(e)=>{
     e.preventDefault();
@@ -24,6 +26,9 @@ const AddProduct = () => {
     fetch('http://localhost:3000/api/seller/products',{
       method:'POST',
       body:formData,
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
     }).then(res=>res.json())
     .then(data=>{
       console.log('Product added:',data);

@@ -37,7 +37,7 @@ const { check } = require('express-validator');
         .withMessage('Password should have atleast one Special Character');
 
     // Confirm Password Validator
-      exports.confirmPasswordValidation =check('confirm_password')
+      exports.confirmPasswordValidation =check('confirmPassword')
         .trim()
         .custom((value, { req }) => {
             if (value !== req.body.password) {

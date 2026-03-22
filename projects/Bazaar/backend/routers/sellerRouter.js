@@ -16,6 +16,7 @@ const storage=multer.diskStorage({
 })
 
 sellerRouter.post('/products',multer({storage:storage}).single('image'),sellerController.createProduct);
+sellerRouter.get('/products',sellerController.getProducts);
 
 
 module.exports=sellerRouter;
