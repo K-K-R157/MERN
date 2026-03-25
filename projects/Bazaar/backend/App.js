@@ -11,15 +11,19 @@ const mongoose = require("mongoose");
 const sellerRouter = require('./routers/sellerRouter');
 const cors=require('cors');
 const authRouter = require('./routers/authRouter');
+const customerRouter = require('./routers/customerRouter');
 const mongodb_url=process.env.MONGO_DB_URL;
 const app = express();
-const { isLoggedIn, isSeller } = require('./middleware/auth');
+const { isLoggedIn, isSeller,isCustomer } = require('./middleware/auth');
+
+
 app.use(bodyParser.urlencoded({ extended: true }));  
 app.use(cors());
 app.use(express.json());
+app.use('/uploads', express.static('uploads'));
 app.use('/api/seller',isLoggedIn, isSeller, sellerRouter);
 app.use('/api/auth',authRouter);
-
+app.use('/api/customer',isLoggedIn,isCustomer,customerRouter);
 app.use(errorController.get404);
 app.use(authRouter)
 const PORT = process.env.PORT || 3000;

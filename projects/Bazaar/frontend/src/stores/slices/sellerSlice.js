@@ -33,7 +33,7 @@ const sellerSlice = createSlice({
     },
     deleteProduct: (state, action) => {
       state.products = state.products.filter(
-        (product) => product.id !== action.payload,
+        (product) => product._id !== action.payload,
       );
     },
   },

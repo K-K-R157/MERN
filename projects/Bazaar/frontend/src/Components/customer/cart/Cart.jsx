@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCustomerData } from  "../../stores/slices/customerSlice";
-import ErrorMessages from "../common/ErrorMessages";
-import CustomerProduct from "./CustomerProduct";
+import {
+  fetchCustomerData,
+} from "../../../stores/slices/customerSlice";
+import ErrorMessages from "../../common/ErrorMessages";
+import CartItems from "./CartItems";
+import CartSummary from "./CartSummary";
 
-const CustomerHome = () => {
+const Cart = () => {
   const dispatch = useDispatch();
   const { products, cart, isLoading, errorMessages } = useSelector(
     (state) =>
@@ -26,29 +29,20 @@ const CustomerHome = () => {
     );
   }
 
-    
+  const productsInCart = products.filter((product) =>
+    cart.includes(product._id),
+  );
 
   return (
     <div className="customer-home p-8">
-      <h1 className="text-3xl font-bold mb-8">Customer Dashboard</h1>
+      <h1 className="text-3xl font-bold mb-8">Cart Dashboard</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <ErrorMessages messages={errorMessages} />
-        {products && products.length > 0 ? (
-          products.map((product) => (
-            <CustomerProduct
-              key={product._id}
-              product={product}
-              cart={cart}
-            />
-          ))
-        ) : (
-          <p className="text-gray-500 text-center col-span-full">
-            No products available
-          </p>
-        )}
+        <CartItems products={productsInCart} />
+        <CartSummary products={productsInCart}/>
       </div>
     </div>
   );
 };
 
-export default CustomerHome;
+export default Cart;

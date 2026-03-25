@@ -28,6 +28,22 @@ const NavBar = () => {
               >
                 Home
               </Link>
+              {isLoggedIn && userType === "customer" && (
+                <>
+                  <Link
+                    to="/cart"
+                    className="text-white hover:text-blue-200 transition font-medium text-lg"
+                  >
+                    Cart
+                  </Link>
+                  <Link
+                    to="/orders"
+                    className="text-white hover:text-blue-200 transition font-medium text-lg"
+                  >
+                    Orders
+                  </Link>
+                </>
+              )}
               {isLoggedIn && userType === "seller" && (
                 <Link
                   to="/add-product"

@@ -31,7 +31,6 @@ const AddProduct = () => {
       }
     }).then(res=>res.json())
     .then(data=>{
-      console.log('Product added:',data);
       // Optionally reset the form here
       nameRef.current.value='';
       brandRef.current.value='';
