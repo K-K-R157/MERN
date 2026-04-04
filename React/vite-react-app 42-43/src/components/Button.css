@@ -1,0 +1,27 @@
+.dangerButton{
+    color: rgb(236, 236, 245);
+    height: 20px;
+    background-color: brown;
+    border: none;
+    border-radius: 5px;
+    margin: 3px;
+}
+
+.deleteButton{
+    color: rgb(243, 243, 247);
+    height: 20px;
+    background-color: rgb(237, 12, 12);
+    border: none;
+    border-radius: 5px;
+     margin: 3px;
+}
+
+.saveButton{
+    color: rgb(240, 240, 248);
+    height: 20px;
+    background-color: rgb(18, 174, 93);
+    border: none;
+    border-radius: 5px;
+     margin: 3px;
+}
+
